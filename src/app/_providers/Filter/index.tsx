@@ -1,6 +1,6 @@
-'use client';
+'use client'
 
-import { createContext, ReactNode, SetStateAction, useContext, useState } from "react";
+import { createContext, ReactNode, SetStateAction, useContext, useState } from 'react'
 
 interface IContextType {
   categoryFilters: string[]
@@ -13,22 +13,24 @@ export const INITIAL_FILTER_DATA = {
   categoryFilters: [],
   setCategoryFilters: () => [],
   sort: '',
-  setSort: () => ''
+  setSort: () => '',
 }
 
-const FilterContext = createContext<IContextType>(INITIAL_FILTER_DATA);
+const FilterContext = createContext<IContextType>(INITIAL_FILTER_DATA)
 
 export const FilterProvider = ({ children }: { children: React.ReactNode }) => {
   const [categoryFilters, setCategoryFilters] = useState([])
   const [sort, setSort] = useState('-createdAt')
 
   return (
-    <FilterContext.Provider value={{
-      categoryFilters,
-      setCategoryFilters,
-      sort,
-      setSort
-    }}>
+    <FilterContext.Provider
+      value={{
+        categoryFilters,
+        setCategoryFilters,
+        sort,
+        setSort,
+      }}
+    >
       {children}
     </FilterContext.Provider>
   )

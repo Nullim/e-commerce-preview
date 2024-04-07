@@ -1,20 +1,21 @@
 'use client'
 
 import React, { useState } from 'react'
-
-import classes from './index.module.scss'
+import Image from 'next/image'
 import Link from 'next/link'
+
 import { Media } from '../../../_components/Media'
 import { Price } from '../../../_components/Price'
-import Image from 'next/image'
 import { RemoveFromCartButton } from '../../../_components/RemoveFromCartButton'
+
+import classes from './index.module.scss'
 
 const CartItem = ({ product, title, metaImage, qty, addItemToCart }) => {
   const [quantity, setQuantity] = useState(qty)
 
   const decrementQty = () => {
     const updatedQty = quantity > 1 ? quantity - 1 : quantity
-    
+
     setQuantity(updatedQty)
     addItemToCart({ product, quantity: Number(updatedQty) })
   }
@@ -48,18 +49,30 @@ const CartItem = ({ product, title, metaImage, qty, addItemToCart }) => {
 
         <div className={classes.quantity}>
           <div className={classes.quantityBtn} onClick={decrementQty}>
-            <Image src="/assets/icons/minus.svg" alt='minus' width={24} height={24} className={classes.qtnBt} />
+            <Image
+              src="/assets/icons/minus.svg"
+              alt="minus"
+              width={24}
+              height={24}
+              className={classes.qtnBt}
+            />
           </div>
 
           <input
-            type='text'
+            type="text"
             className={classes.quantityInput}
             value={quantity}
             onChange={enterQty}
           />
 
           <div className={classes.quantityBtn} onClick={incrementQty}>
-            <Image src="/assets/icons/plus.svg" alt='plus' width={24} height={24} className={classes.qtnBt} />
+            <Image
+              src="/assets/icons/plus.svg"
+              alt="plus"
+              width={24}
+              height={24}
+              className={classes.qtnBt}
+            />
           </div>
         </div>
       </div>

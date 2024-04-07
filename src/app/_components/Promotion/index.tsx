@@ -35,18 +35,16 @@ const Promotion = () => {
     return () => {
       clearInterval(timerInterval)
     }
-  }, [])
+  }, [targetDate])
 
   return (
     <section className={classes.promotion}>
       <div className={classes.textBox}>
         <h3 className={classes.title}>Deals of the Month</h3>
         <p>
-          The ultimate shopping experience is here! Every month we offer
-          incredible deals on our most popular products. We also offer
-          coupons every week with your purchase, making this the perfect
-          time to get that laptop or phone you always wanted!
-          Don't miss out!
+          The ultimate shopping experience is here! Every month we offer incredible deals on our
+          most popular products. We also offer coupons every week with your purchase, making this
+          the perfect time to get that laptop or phone you always wanted! Don't miss out!
         </p>
         <ul className={classes.stats}>
           <StatBox label="Days" value={time.days} />
@@ -54,13 +52,12 @@ const Promotion = () => {
           <StatBox label="Minutes" value={time.minutes} />
           <StatBox label="Seconds" value={time.seconds} />
         </ul>
-        
       </div>
     </section>
   )
 }
 
-const StatBox = ({ label, value }: { label: string, value: number }) => (
+const StatBox = ({ label, value }: { label: string; value: number }) => (
   <li className={classes.statBox}>
     <h5>{value}</h5>
     <p>{label}</p>

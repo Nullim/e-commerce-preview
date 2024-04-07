@@ -7,10 +7,10 @@ import { usePathname } from 'next/navigation'
 
 import { Footer, Media } from '../../../../payload/payload-types'
 import { inclusions, noHeaderFooterUrls } from '../../../constants'
+import { Button } from '../../Button'
 import { Gutter } from '../../Gutter'
 
 import classes from './index.module.scss'
-import { Button } from '../../Button'
 const FooterComponent = ({ footer }: { footer: Footer }) => {
   const pathname = usePathname()
 
@@ -20,7 +20,7 @@ const FooterComponent = ({ footer }: { footer: Footer }) => {
     <footer className={noHeaderFooterUrls.includes(pathname) ? classes.hide : ''}>
       <Gutter>
         <ul className={classes.inclusions}>
-        {inclusions.map((inclusion) => (
+          {inclusions.map(inclusion => (
             <li key={inclusion.title}>
               <Image
                 src={inclusion.icon}
@@ -46,7 +46,7 @@ const FooterComponent = ({ footer }: { footer: Footer }) => {
 
             <p>{footer.copyright}</p>
             <div className={classes.socialLinks}>
-              {navItems.map((item) => {
+              {navItems.map(item => {
                 const icon = item?.link?.icon as Media
 
                 return (
@@ -57,8 +57,8 @@ const FooterComponent = ({ footer }: { footer: Footer }) => {
                     newTab={true}
                     className={classes.socialLinkItem}
                   >
-                    <Image 
-                      src={icon?.url} 
+                    <Image
+                      src={icon?.url}
                       alt={item.link.label}
                       width={24}
                       height={24}
